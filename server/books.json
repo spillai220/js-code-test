@@ -1,0 +1,47 @@
+{
+	"books": [{
+		"book": {
+			"title": "If Hemingway Wrote JavaScript",
+			"isbn": "9781593275853",
+			"author": "Barry"
+		},
+		"stock": {
+			"quantity": 1,
+			"price": "£17.79"
+		}
+	},
+	{
+		"book": {
+			"title": "Grokking Deep Learning",
+			"isbn": "9781617293702",
+			"author": "William Shakespeare"
+		},
+		"stock": {
+			"quantity": 2,
+			"price": "£39.99"
+		}
+	},
+	{
+		"book": {
+			"title": "Tiny Python Projects",
+			"isbn": "9781617297519",
+			"author": "William Shakespeare"
+		},
+		"stock": {
+			"quantity": 4,
+			"price": "£19.99"
+		}
+	},
+	{
+		"book": {
+			"title": "Apple Device Management",
+			"isbn": "9781484253878",
+			"author": "William Shakespeare"
+		},
+		"stock": {
+			"quantity": 10,
+			"price": "£20.79"
+		}
+	}
+]
+}
