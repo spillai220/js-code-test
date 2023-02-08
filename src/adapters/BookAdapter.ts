@@ -1,4 +1,4 @@
-import { Book } from "../interface/Book"; 
+import { Book } from '../interface/Book'; 
 
 export class BookAdapter {
 	static parseJSON(data: any) : Book {

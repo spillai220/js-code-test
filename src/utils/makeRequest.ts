@@ -1,18 +1,21 @@
-export const makeRequest = (url: string, method = 'GET') => {
-	return new Promise<any>((resolve, reject) => {
-		const xhr = new XMLHttpRequest();
-		xhr.open(method, url);
+import fetch from 'isomorphic-fetch';
 
-		xhr.onload = () => {
-			if(xhr.status === 200) {
-				resolve(xhr)
+export const makeRequest = (url: string, method = 'GET') => {
+	return fetch(url, { method } )
+		.then((response : Response) => {
+			const contentType = response.headers.get('content-type');
+			if (response.ok) {
+				return contentType?.includes("application/json") ? response.json() : response.text();
+
 			} else {
-				const error = `Request failed. Returned status of ${xhr.status}`
-				reject({
-					status: xhr.status,
-					statusText: error
-				})
+				return {
+					status: response.status,
+					statusText: `Request failed. Returned status of ${response.status}`
+				}
 			}
-		}
-	});
-};
+		})
+		.catch(err => {
+			return err;
+		
+		});
+}

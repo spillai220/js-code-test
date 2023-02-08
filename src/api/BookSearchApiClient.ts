@@ -8,36 +8,33 @@ const FORMAT = {
 }
 export default class BookSearchApiClient {
   private format;
-  private API_URL = 'http://api.book-seller-example.com'; 
+  private API_URL = 'http://localhost:3000'; 
+  //private API_URL = 'http://api.book-seller-example.com'; 
   
   constructor(format : string) {
     this.format = format;
   }
 
-   private parseJSON = (responseText: string) => {
-    const json = JSON.parse(responseText);
-    const result = json.map(BookAdapter.parseJSON);
-
-    return result
+   private parseJSON = (response: any) => {
+    return response.map(BookAdapter.parseJSON);
    }
 
-   private parseXML = (responseXML: XMLDocument) => {
-    const items = Array.from(responseXML.documentElement.children) as any[];
+   private parseXML = (response: XMLDocument) => {
+    const items = Array.from(response.documentElement.children) as any[];
     const result = items.map(BookAdapter.parseXML)
 
     return result;
    }
 
-   getBooksByAuthor = async (authorName: string, limit: number) : Promise<Book[] | undefined> => {
+   public getBooksByAuthor = async (authorName: string, limit: number) : Promise<Book[] | undefined> => {
     const url = `${this.API_URL}/by-author?q=${authorName}&limit=${limit}&format=${this.format}`;
     try {
       const response = await makeRequest(url);
-
       if (this.format === FORMAT.JSON) {
-        return this.parseJSON(response.responseText);
+        return this.parseJSON(response);
 
       } else if (this.format === FORMAT.XML) {
-        return this.parseXML(response.responseXML);
+        return this.parseXML(response);
 
       }
 
