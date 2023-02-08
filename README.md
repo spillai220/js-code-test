@@ -12,5 +12,5 @@ Things you will be asked about:
 4. How your code would be tested
 
 # Setup and running on local dev server
-1. In terminal navigate to `server` directory, run `npm start`
+1. In terminal navigate to `server` directory, run `npm start`, this serves as the API with the mock JSON data
 2. In a separate terminal navigate back to the root directory, run `npm start`
