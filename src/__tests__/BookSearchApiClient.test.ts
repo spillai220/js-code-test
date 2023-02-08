@@ -1,9 +1,9 @@
-import BookSearchApiClient from "../api/BookSearchApiClient"
+import BookSearchApiClient from '../api/BookSearchApiClient'
 import { mockJSONData, mockXMLResponseString, mockParsedResponse } from '../__mocks__/mockResponse'
-import * as utils from "../utils/makeRequest";
+import * as utils from '../utils/makeRequest';
 
 const parser = new DOMParser();
-const mockXMLResponse = parser.parseFromString(mockXMLResponseString, "application/xml");
+const mockXMLResponse = parser.parseFromString(mockXMLResponseString, 'application/xml');
 
 const errorText = 'Request failed. Returned status of 404'
 const success = () => Promise.resolve({
@@ -16,37 +16,36 @@ const fail = () => Promise.reject({
 
 
 describe('BookSearchApiClient', () => {
+	afterEach(() => {
+		jest.clearAllMocks();
+	})
 	it('should parse and return results when format is "json"', async () => {
-		const mockMakeRequest = jest.spyOn(utils, "makeRequest")
+		const mockMakeRequest = jest.spyOn(utils, 'makeRequest')
 		mockMakeRequest.mockImplementation(success)
 		
 		const client = new BookSearchApiClient('json');
 		const result = await client.getBooksByAuthor('Shakespear', 10);
 		
 		expect(result).toEqual(mockParsedResponse)
-		jest.clearAllMocks();
 	});
 
 	it('should parse and return results when format is "xml"', async () => {
-		const mockMakeRequest = jest.spyOn(utils, "makeRequest")
+		const mockMakeRequest = jest.spyOn(utils, 'makeRequest')
 		mockMakeRequest.mockImplementation(success)
 
 		const client = new BookSearchApiClient('xml');
 		const result = await client.getBooksByAuthor('Shakespear', 10);
 
 		expect(result).toEqual(mockParsedResponse);
-		jest.clearAllMocks();
 	})
 
 	it('should return error message on failed request', async () => {
-		const mockMakeRequest = jest.spyOn(utils, "makeRequest")
+		const mockMakeRequest = jest.spyOn(utils, 'makeRequest')
 		mockMakeRequest.mockImplementation(fail)
 
 		const client = new BookSearchApiClient('json');
 		const result = await client.getBooksByAuthor('Shakespear', 10);
 
 		expect(result).toEqual(errorText);
-		jest.clearAllMocks();
-
 	})
 })

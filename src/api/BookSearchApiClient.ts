@@ -1,5 +1,6 @@
-import { makeRequest } from "../utils/makeRequest";
-import { BookAdapter } from "../adapters/BookAdapter";
+import { makeRequest } from '../utils/makeRequest';
+import { BookAdapter } from '../adapters/BookAdapter';
+import { Book } from '../interface/Book';
 
 const FORMAT = {
   JSON: 'json',
@@ -7,7 +8,7 @@ const FORMAT = {
 }
 export default class BookSearchApiClient {
   private format;
-  private API_URL = "http://api.book-seller-example.com"; 
+  private API_URL = 'http://api.book-seller-example.com'; 
   
   constructor(format : string) {
     this.format = format;
@@ -27,7 +28,7 @@ export default class BookSearchApiClient {
     return result;
    }
 
-   getBooksByAuthor = async (authorName: string, limit: number) => {
+   getBooksByAuthor = async (authorName: string, limit: number) : Promise<Book[] | undefined> => {
     const url = `${this.API_URL}/by-author?q=${authorName}&limit=${limit}&format=${this.format}`;
     try {
       const response = await makeRequest(url);
