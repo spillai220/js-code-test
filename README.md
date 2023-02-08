@@ -10,3 +10,7 @@ Things you will be asked about:
 2. How woud you manage differences in response payloads between differnt APIs without needing to make future changes to whatever code you have in example-client.js
 3. How would you implement different query types for example: by publisher, by year published etc
 4. How your code would be tested
+
+# Setup and running on local dev server
+1. In terminal navigate to `server` directory, run `npm start`
+2. In a separate terminal navigate back to the root directory, run `npm start`
