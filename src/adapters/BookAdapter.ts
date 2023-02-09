@@ -14,7 +14,7 @@ export class BookAdapter {
 		return {
 			title: data.children[0].children[0].textContent,
 			isbn: data.children[0].children[1].textContent,
-			author: data.children[0]?.children[2]?.textContent,
+			author: data.children[0].children[2].textContent,
 			quantity: parseInt(data.children[1].children[0].textContent),
 			price: data.children[1].children[1].textContent,
 		}
