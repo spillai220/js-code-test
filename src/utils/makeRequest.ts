@@ -5,6 +5,7 @@ export const makeRequest = (url: string, method = 'GET') => {
 		.then((response : Response) => {
 			const contentType = response.headers.get('content-type');
 			if (response.ok) {
+				//NOTE: Need to add xml parsing support
 				return contentType?.includes("application/json") ? response.json() : response.text();
 
 			} else {

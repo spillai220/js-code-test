@@ -1,4 +1,5 @@
 import { makeRequest } from '../utils/makeRequest';
+import { makeXHRequest } from '../utils/makeXHRequest';
 import { BookAdapter } from '../adapters/BookAdapter';
 import { Book } from '../interface/Book';
 
@@ -28,8 +29,11 @@ export default class BookSearchApiClient {
 
    public getBooksByAuthor = async (authorName: string, limit: number) : Promise<Book[] | undefined> => {
     const url = `${this.API_URL}/by-author?q=${authorName}&limit=${limit}&format=${this.format}`;
+
+    const sendRequest = this.format === FORMAT.JSON ? makeRequest : makeXHRequest;
+    
     try {
-      const response = await makeRequest(url);
+      const response = await sendRequest(url);
       if (this.format === FORMAT.JSON) {
         return this.parseJSON(response);
 
