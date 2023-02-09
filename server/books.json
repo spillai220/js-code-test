@@ -3,7 +3,7 @@
 		"book": {
 			"title": "If Hemingway Wrote JavaScript",
 			"isbn": "9781593275853",
-			"author": "Barry"
+			"author": "Angus Croll"
 		},
 		"stock": {
 			"quantity": 1,
@@ -12,7 +12,7 @@
 	},
 	{
 		"book": {
-			"title": "Grokking Deep Learning",
+			"title": "Hamlet",
 			"isbn": "9781617293702",
 			"author": "William Shakespeare"
 		},
@@ -23,7 +23,7 @@
 	},
 	{
 		"book": {
-			"title": "Tiny Python Projects",
+			"title": "The Tempest",
 			"isbn": "9781617297519",
 			"author": "William Shakespeare"
 		},
@@ -34,13 +34,57 @@
 	},
 	{
 		"book": {
-			"title": "Apple Device Management",
+			"title": "Romeo and Juliet",
 			"isbn": "9781484253878",
 			"author": "William Shakespeare"
 		},
 		"stock": {
 			"quantity": 10,
 			"price": "£20.79"
+		}
+	},
+	{
+		"book": {
+			"title": "Macbeth",
+			"isbn": "9781484257778",
+			"author": "William Shakespeare"
+		},
+		"stock": {
+			"quantity": 10,
+			"price": "£20.79"
+		}
+	},
+	{
+		"book": {
+			"title": "Othello",
+			"isbn": "97814842533438",
+			"author": "William Shakespeare"
+		},
+		"stock": {
+			"quantity": 14,
+			"price": "£2.79"
+		}
+	},
+	{
+		"book": {
+			"title": "The Count of Monte Cristo",
+			"isbn": "181414842533438",
+			"author": "Alexandre Dumas"
+		},
+		"stock": {
+			"quantity": 3,
+			"price": "£12.00"
+		}
+	},
+	{
+		"book": {
+			"title": "Crime and Punishment",
+			"isbn": "181414842533558",
+			"author": "Fyodor Dostoevsky"
+		},
+		"stock": {
+			"quantity": 29,
+			"price": "£10.00"
 		}
 	}
 ]
